@@ -1,0 +1,57 @@
+<h3>Formulaire Reactive pour la creation des produits</h3>
+
+
+<form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+
+    <div>
+        <label>Nom du produit :</label>
+        <input type="text" formControlName ="name" />
+        <div *ngIf="f['name'].touched && f['name'].invalid" style="color: red;">
+            le nom du produit est requis.
+        </div> 
+    </div>
+
+      <div>
+        <label>catégorie :</label>
+        
+            <select formControlName ="category" >
+                <option value=""> Choisir une option</option>
+                <option value="Informatique">Informatique</option>
+                <option value="Electronique">Electronique</option>
+                <option value="Autre">Autre</option>
+            </select>
+        <div *ngIf="f['category'].touched && f['category'].invalid" style="color: red;">
+            la categorie est requis.
+        </div> 
+    </div>
+
+
+      <div>
+        <label>Prix :</label>
+        <input type="number" formControlName ="price" />
+        <div *ngIf="f['price'].touched && f['price'].invalid"  style="color: red;">
+           <ng-container *ngIf="f['price'].errors as errors">
+              <div *ngIf="errors['required']"> le prix est requis.</div>    
+              <div *ngIf="errors['min']"> le prix doit être positif.</div>    
+           </ng-container>
+        </div> 
+           <div *ngIf="isPremuim" style="color: green;">Produit premuim.</div>    
+    </div>
+
+    <div>
+        <label>Quantité :</label>
+        <input type="number" formControlName ="quantity" />
+        <div *ngIf="f['quantity'].touched && f['quantity'].invalid" style="color: red;">
+            Quantité minimale : 0
+        </div> 
+    </div>
+
+    <div>
+        <label>Description :</label>
+        <textarea formControlName ="descritpion"></textarea>   
+    </div>
+
+    <button type="submit">Save</button>
+    <button type="button" (click)="onReset()">Reset</button>
+
+</form>
