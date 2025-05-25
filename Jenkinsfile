@@ -7,7 +7,8 @@ pipeline {
         stage ('clone repo'){
             steps {
                 echo 'clone repo'
-                git 'https://github.com/YNS-JNS/product-forms.git'
+                git branch: 'main'
+                    url: 'https://github.com/YNS-JNS/product-forms.git'
             }
         }
         stage ('install dependencies'){
