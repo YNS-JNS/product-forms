@@ -1,6 +1,6 @@
 import { Component  } from '@angular/core';
 import { CommonModule , NgIf} from '@angular/common';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators, AbstractControl, FormControl} from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators, AbstractControl} from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -24,7 +24,7 @@ export class ProductAppComponent {
     });
   }
 
-  get f(): { [key : string ] : AbstractControl }{
+  get f(): Record<string, AbstractControl>{
     return this.productForm.controls;
   }
 

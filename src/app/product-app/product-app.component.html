@@ -4,7 +4,7 @@
 <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
 
     <div>
-        <label>Nom du produit :</label>
+        <label for="name">Nom du produit :</label>
         <input type="text" formControlName ="name" />
         <div *ngIf="f['name'].touched && f['name'].invalid" style="color: red;">
             le nom du produit est requis.
@@ -12,7 +12,7 @@
     </div>
 
       <div>
-        <label>catégorie :</label>
+        <label for="category">catégorie :</label>
         
             <select formControlName ="category" >
                 <option value=""> Choisir une option</option>
@@ -27,7 +27,7 @@
 
 
       <div>
-        <label>Prix :</label>
+        <label for="price">Prix :</label>
         <input type="number" formControlName ="price" />
         <div *ngIf="f['price'].touched && f['price'].invalid"  style="color: red;">
            <ng-container *ngIf="f['price'].errors as errors">
@@ -39,7 +39,7 @@
     </div>
 
     <div>
-        <label>Quantité :</label>
+        <label for="quantity">Quantité :</label>
         <input type="number" formControlName ="quantity" />
         <div *ngIf="f['quantity'].touched && f['quantity'].invalid" style="color: red;">
             Quantité minimale : 0
@@ -47,8 +47,8 @@
     </div>
 
     <div>
-        <label>Description :</label>
-        <textarea formControlName ="descritpion"></textarea>   
+        <label for="description">Description :</label>
+        <textarea formControlName ="description"></textarea>   
     </div>
 
     <button type="submit">Save</button>
