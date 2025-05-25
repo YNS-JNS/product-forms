@@ -46,12 +46,12 @@ pipeline {
         success {
             mail to: "${EMAIL_RECEPT}",
             subject: "pipeline success",
-            body: "Pipeline a ete termine avec success"
+            body: "Pipeline finished successfully"
         }
         failure {
             mail to: "${EMAIL_RECEPT}",
             subject: "echec d'execution",
-            body: "Pipeline a ete termine avec echec"
+            body: "Something was wrong"
         }
     }
 }
